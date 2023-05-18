@@ -4,10 +4,10 @@ class AddUser extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
-      lastName: '',
-      job: '',
-      age: 1,
+      first_name: '',
+      last_name: '',
+      enail: '',
+      avatar: '',
       isHappy: false,
     }
   }
@@ -17,22 +17,24 @@ class AddUser extends React.Component {
         <input
           type="text"
           placeholder="name"
-          onChange={(event) => this.setState({ name: event.target.value })}
+          onChange={(event) =>
+            this.setState({ first_name: event.target.value })
+          }
         />
         <input
           type="text"
           placeholder="LastName"
-          onChange={(event) => this.setState({ lastName: event.target.value })}
+          onChange={(event) => this.setState({ last_name: event.target.value })}
         />
         <input
           type="text"
-          placeholder="Job"
-          onChange={(event) => this.setState({ job: event.target.value })}
+          placeholder="email"
+          onChange={(event) => this.setState({ email: event.target.value })}
         />
         <input
           type="text"
-          placeholder="age"
-          onChange={(event) => this.setState({ age: event.target.value })}
+          placeholder="avatar"
+          onChange={(event) => this.setState({ avatar: event.target.value })}
         />
         <label htmlFor="isHappy">Happy?</label>
         <input
@@ -46,10 +48,10 @@ class AddUser extends React.Component {
           onClick={() => {
             this.addForm.reset()
             this.userAdd = {
-              name: this.state.name,
-              lastName: this.state.lastName,
-              job: this.state.job,
-              age: this.state.age,
+              first_name: this.state.first_name,
+              last_Name: this.state.last_Name,
+              email: this.state.email,
+              avatar: this.state.avatar,
               isHappy: this.state.isHappy,
             }
             if (this.props.user) this.userAdd.id = this.props.user.id

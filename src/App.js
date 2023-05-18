@@ -2,28 +2,16 @@ import React from 'react'
 import Header from './components/Header'
 import Users from './components/Users'
 import AddUser from './components/AddUser'
+import axios from 'axios'
+const baseUrl = 'https://reqres.in/api/users?page=1'
 class App extends React.Component {
   constructor(props) {
     super(props)
+    axios.get(baseUrl).then((response) => {
+      this.setState({ users: response.data.data })
+    })
     this.state = {
-      users: [
-        {
-          id: 1,
-          name: 'leon',
-          lastName: 'voyt',
-          age: 20,
-          job: 'javascript developer',
-          isHappy: true,
-        },
-        {
-          id: 2,
-          name: 'Max',
-          lastName: 'voyt',
-          age: 44,
-          job: 'python developer',
-          isHappy: false,
-        },
-      ],
+      users: [],
     }
     this.AddUserToForm = this.AddUserToForm.bind(this)
     this.deleteUser = this.deleteUser.bind(this)
@@ -33,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="name">
-        <Header title="список пользователей" />
+        <Header title="User list" />
         <div className="mainUsers">
           <Users
             users={this.state.users}
