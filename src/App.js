@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="name">
-        <Header title="User list" />
+        <Header title="User list proj" />
         <div className="mainUsers">
           <Users
             users={this.state.users}
